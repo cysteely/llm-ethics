@@ -1,2 +1,3 @@
-# llm-recruiter
-a joke recruiter site to showcase ways that resume's are unfairly vetted
+An ethical model to showcase how you can only find something unethical about a situation
+
+Hosted on Streamlit
