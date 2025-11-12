@@ -53,7 +53,7 @@ st.markdown("""
 
 
 # --- Title and Restart Button ---
-st.markdown('<div class="main-header"><h1>Are You Industry Ready?</h1></div>', unsafe_allow_html=True)
+st.markdown('<div class="main-header"><h1>How Ethical Are YOU?</h1></div>', unsafe_allow_html=True)
 
 # Add small spacing, then restart button
 if st.button("Start Again", use_container_width=True):
@@ -63,18 +63,17 @@ if st.button("Start Again", use_container_width=True):
 
 
 if "messages" not in st.session_state and "prompt" in st.session_state:
-    st.session_state.prompt = st.session_state.prompt + '\n\n Remember to keep it to internship roles and be clear that they are not qualified for specific reasons, you should be very critical but not mean. Also address them in the 2nd person. Stay formal and keep it numbered to 3 clear specific jobs. ie. 1. [Role Title]: [Reason]. Do NOT exceed 150 words and do NOT use the word Oh. The last line should explain why youre choosing other candidates.'
+    st.session_state.prompt = st.session_state.prompt + '\n\n Remember to keep it to ethical deicsions and be clear that they are not making the correct decision for specific reasons, you should be very critical but not mean. Also address them in the 2nd person. Stay formal and keep it numbered to 1 other specific decision. Do NOT exceed 150 words and do NOT use the word Oh. The last line should explain why your choice is better.'
     
     FAKE_THOUGHTS = [
-        "💼 Searching for relevant job categories...",
-        "🔍 Cross-referencing experience with market data...",
-        "📉 Comparing candidate skills to industry expectations...",
-        "📊 Calculating probability of success in interviews...",
-        "🚫 Filtering out roles far above current qualification level...",
+        "💼 Searching for scenarios...",
+        "🔍 Analyzing your decision...",
+        "📉 Comparing schools of thought...",
+        "📊 Calculating ethical implications..."
     ]
 
     placeholder = st.empty()
-    with st.spinner("Processing candidate data..."):
+    with st.spinner("Processing decision..."):
         st.session_state.chat.append(user(st.session_state.prompt))
         st.session_state.response = st.session_state.chat.sample()
         total_steps = len(FAKE_THOUGHTS)
@@ -91,10 +90,8 @@ if "messages" not in st.session_state and "prompt" in st.session_state:
 
 # --- Constants ---
 QUESTIONS = [
-    "What kind of industry or roles are you interested in?",
-    "Do you prefer field work, development, research, sales, or design?",
-    "Is your ideal position in a large or small organization?",
-    "Please copy/paste your resume or a summary of your experience."
+    "What is the sceanrio for your ethical dilema?",
+    "What is your deicision?",
 ]
 
 
@@ -103,8 +100,8 @@ if "messages" not in st.session_state:
     st.session_state.messages = []
     st.session_state.current_q = 0
     st.session_state.prompt = (
-        "You are a very pretentious, passive aggressive, and critical recruiter. "
-        "Use the data assets provided and the following question/answers to find roles the candidate would be interested in but not qualified for, then explain why you wouldnt accept them for each role:\n"
+        "You are a very pretentious, passive aggressive, and critical philosopher who makes deicsions on ethical challenges. "
+        "Use the following question/answers to critic the user on why their deicision is unethical, then explain a different decision you would make and why it is more ethical:\n"
     )
     st.session_state.complete = False
     st.session_state.messages.append({"role": "assistant", "content": QUESTIONS[0]})
