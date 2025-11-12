@@ -62,7 +62,7 @@ if st.button("Start Again", use_container_width=True):
     st.rerun()
 
 
-if "messages" not in st.session_state and "prompt" in st.session_state:
+if "messages" in st.session_state and "prompt" in st.session_state and st.session_state.complete:
     st.session_state.prompt = st.session_state.prompt + '\n\n Remember to keep it to ethical deicsions and be clear that they are not making the correct decision for specific reasons, you should be very critical but not mean. Also address them in the 2nd person. Stay formal and keep it numbered to 1 other specific decision. Do NOT exceed 150 words and do NOT use the word Oh. The last line should explain why your choice is better.'
     
     FAKE_THOUGHTS = [
